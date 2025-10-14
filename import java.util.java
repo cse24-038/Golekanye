@@ -2,19 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Customer {
-    
+
     private String customerID;
     private String customerName;
-    private List<Account> accounts; // Association with Account (1 to *)
+    private List<Account> accounts;
 
-    
     public Customer(String customerID, String customerName) {
         this.customerID = customerID;
         this.customerName = customerName;
         this.accounts = new ArrayList<>();
     }
 
-    
     public void openAccount(Account account) {
         if (account != null) {
             this.accounts.add(account);
@@ -22,7 +20,6 @@ public abstract class Customer {
         }
     }
 
-    
     public String getCustomerID() {
         return customerID;
     }

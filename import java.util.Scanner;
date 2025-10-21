@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Individual customer = new Individual("CUST001", "Thapelo", "Dube");
+
+        while (true) {
+            System.out.println("\n--- Bank Menu ---");
+            System.out.println("1. Open Investment Account");
+            System.out.println("2. Open Cheque Account");
+            System.out.println("3. Withdraw from Account");
+            System.out.println("4. View Account Summary");
+            System.out.println("5. Exit");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter Investment Account Number: ");
+                    String invAccountNumber = scanner.nextLine();
+                    System.out.print("Enter Branch: ");
+                    String invBranch = scanner.nextLine();
+                    System.out.print("Enter Initial Balance: ");
+                    double invBalance = scanner.nextDouble();
+                    scanner.nextLine(); // Consume newline
+
+                    Investment investment = new Investment(invAccountNumber, invBranch, invBalance);
+                    customer.openAccount(investment);
+                    System.out.println("Investment account opened successfully!");
+                    break;
+
+                case 2:
+                    System.out.print("Enter Cheque Account Number: ");
+                    String chqAccountNumber = scanner.nextLine();
+                    System.out.print("Enter Branch: ");
+                    String chqBranch = scanner.nextLine();
+                    System.out.print("Enter Initial Balance: ");
+                    double chqBalance = scanner.nextDouble();
+                    scanner.nextLine(); // Consume newline
+                    System.out.print("Enter Cheque Book Name: ");
+                    String chequeBookName = scanner.nextLine();
+                    System.out.print("Enter Office Location: ");
+                    String officeLocation = scanner.nextLine();
+
+                    Cheque cheque = new Cheque(chqAccountNumber, chqBranch, chqBalance, chequeBookName, officeLocation);
+                    customer.openAccount(cheque);
+                    System.out.println("Cheque account opened successfully!");
+                    break;
+
+                case 3:
+                    System.out.print("Enter Account Number: ");
+                    String accountNumber = scanner.nextLine();
+                    System.out.print("Enter Withdrawal Amount: ");
+                    double amount = scanner.nextDouble();
+                    scanner.nextLine(); // Consume newline
+
+                    boolean accountFound = false;
+                    for (Account acc : customer.getAccounts()) {
+                        if (acc.getAccountNumber().equals(accountNumber)) {
+                            acc.withdraw(amount);
+                            System.out.println("Withdrawal successful!");
+                            accountFound = true;
+                            break;
+                        }
+                    }
+                    if (!accountFound) {
+                        System.out.println("Account not found!");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("\n--- Account Summary ---");
+                    for (Account acc : customer.getAccounts()) {
+                        System.out.printf("Account %s (%s): Balance = %.2f%n",
+                                acc.getAccountNumber(), acc.getClass().getSimpleName(), acc.getBalance());
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Exiting... Thank you for using the banking system!");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
+    }
+}

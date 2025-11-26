@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+    <children>
+        <VBox alignment="CENTER" spacing="12.0" layoutX="150.0" layoutY="50.0" prefWidth="300.0" style="-fx-background-color: #f9f9f9; -fx-border-color: #ddd; -fx-padding: 24;">
+            <children>
+                <Label text="Bank Login" textFill="#ff69b4">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="usernameField" promptText="Username" />
+                <PasswordField fx:id="passwordField" promptText="Password (demo)" />
+                <Button text="Login" onAction="#handleLogin" />
+                <Button text="Register" onAction="#goToRegister" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,73 @@
+:root {
+  -pink: #FF69B4;
+  -dark: #1a1a1a;
+  -grey: #696969;
+  -light: #ffffff;
+}
+
+.root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  -fx-font-family: "Segoe UI", Arial, sans-serif;
+  background-color: -light;
+  -fx-background-color: -light;
+}
+
+.button {
+  background-color: -pink;
+  -fx-background-color: -pink;
+  -fx-text-fill: white;
+  font-weight: bold;
+  -fx-font-weight: bold;
+  -fx-background-radius: 6;
+}
+
+.button.secondary {
+  background-color: -light;
+  -fx-background-color: -light;
+  -fx-text-fill: -grey;
+  border-color: -grey;
+  -fx-border-color: -grey;
+}
+
+.label.title {
+  -fx-text-fill: -pink;
+  font-size: 24px;
+  -fx-font-size: 24px;
+  font-weight: bold;
+  -fx-font-weight: bold;
+}
+
+.sidebar {
+  background-color: -grey;
+  -fx-background-color: -grey;
+}
+
+.sidebar .button {
+  background-color: -pink;
+  -fx-background-color: -pink;
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  -fx-background-color: white;
+  border-color: -grey;
+  -fx-border-color: -grey;
+  -fx-border-radius: 6;
+  -fx-background-radius: 6;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0.2, 0, 2);
+}
+
+.card:hover {
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 12, 0.3, 0, 4);
+}
+
+.card-title {
+  -fx-text-fill: -pink;
+  font-weight: bold;
+  -fx-font-weight: bold;
+}
+
+.card-balance {
+  -fx-text-fill: -dark;
+}
